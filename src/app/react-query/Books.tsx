@@ -4,7 +4,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { FC } from "react";
 
 export const Books: FC<{}> = () => {
-  const { data, isLoading } = useSuspenseQuery({
+  const { data } = useSuspenseQuery({
     queryKey: ["books"],
     queryFn: async () => {
       const booksResp = await fetch("http://localhost:3000/api/books");
@@ -14,10 +14,6 @@ export const Books: FC<{}> = () => {
     },
   });
 
-  if (isLoading) {
-    return null;
-  } else {
-    const { books } = data;
-    return <div>{books.length}</div>;
-  }
+  const { books } = data;
+  return <div>{books.length}</div>;
 };
