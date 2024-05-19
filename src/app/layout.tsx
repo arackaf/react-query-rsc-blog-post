@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./Providers";
+import Link from "next/link";
+import { Nav } from "./Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default function RootLayout({
   children,
@@ -20,7 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="p-10">
+        <main className="p-10 flex flex-col gap-3">
+          <Nav />
           <Providers>{children}</Providers>
         </main>
       </body>
