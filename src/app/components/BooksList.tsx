@@ -4,6 +4,7 @@ import { BookCover } from "./BookCover";
 export const BooksList: FC<{ books: any[] }> = ({ books }) => {
   return (
     <div className="flex flex-col gap-2">
+      <h1 className="text-lg font-bold leading-none">Books</h1>
       {books.map((book) => (
         <div className="flex gap-3">
           <div className="min-w-[55px]">

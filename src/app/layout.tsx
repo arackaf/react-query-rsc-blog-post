@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="p-10 flex flex-col gap-3">
+        <main className="p-5 flex flex-col gap-3">
           <Nav />
           <Providers>{children}</Providers>
         </main>
