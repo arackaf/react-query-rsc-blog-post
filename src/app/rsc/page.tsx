@@ -9,7 +9,12 @@ export default function RSC() {
     <section>
       <h1>RSC</h1>
       <Suspense fallback={<h1>Loading...</h1>}>
-        <Books />
+        <div className="flex">
+          <div className="flex-[2] min-w-0">
+            <Books />
+          </div>
+          <div className="flex-1 bg-red-500"></div>
+        </div>
       </Suspense>
     </section>
   );
