@@ -7,7 +7,7 @@ export const revalidate = 0;
 
 export const GET = async () => {
   console.log("Fetching books ...");
-  await new Promise((res) => setTimeout(res, 1500));
+  await new Promise((res) => setTimeout(res, 400));
 
   return Response.json({ books });
 };
