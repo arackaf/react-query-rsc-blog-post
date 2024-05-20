@@ -1,16 +1,12 @@
 import sqlite3Module from "sqlite3";
 const sqlite3 = sqlite3Module.verbose();
 
-import { books } from "@/data/books";
-import { Book } from "@/app/components/types";
-
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const GET = async () => {
   console.log("Fetching books ...");
   await new Promise((res) => setTimeout(res, 400));
-  console.log("Books fetched");
 
   const books = await new Promise((res) => {
     const db = new sqlite3.Database("db/db.txt", sqlite3Module.OPEN_READWRITE, async (error) => {
@@ -34,6 +30,8 @@ export const GET = async () => {
           return res(books);
         });
       } catch (err: any) {
+        return res(null);
+      } finally {
         try {
           db.close();
         } catch (er) {}
@@ -41,5 +39,6 @@ export const GET = async () => {
     });
   });
 
+  console.log("Books fetched");
   return Response.json({ books });
 };
