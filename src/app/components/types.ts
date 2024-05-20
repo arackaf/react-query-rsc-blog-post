@@ -10,3 +10,10 @@ export type Book = {
   title: string;
   authors: string[];
 } & BookImages;
+
+export type BookEditProps = {
+  book: {
+    id: number;
+    title: string;
+  };
+};

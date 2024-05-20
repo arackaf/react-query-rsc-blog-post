@@ -2,6 +2,8 @@
 
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { FC } from "react";
+import { BooksList } from "../components/BooksList";
+import { BookEdit } from "../components/BookEditReactQuery";
 
 export const Books: FC<{}> = () => {
   const { data } = useSuspenseQuery({
@@ -15,5 +17,10 @@ export const Books: FC<{}> = () => {
   });
 
   const { books } = data;
-  return <div>{books.length}</div>;
+
+  return (
+    <div>
+      <BooksList books={books} BookEdit={BookEdit} />
+    </div>
+  );
 };

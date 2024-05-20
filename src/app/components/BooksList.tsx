@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { BookCover } from "./BookCover";
-import { BookEdit } from "./BookEditRSC";
+import { BookEditProps } from "./types";
 
-type Props = { books: any[] };
+type Props = { books: any[]; BookEdit: FC<BookEditProps> };
 
-export const BooksList: FC<Props> = ({ books }) => {
+export const BooksList: FC<Props> = ({ books, BookEdit }) => {
   return (
     <div className="flex flex-col gap-2">
       <h1 className="text-lg font-bold leading-none">Books</h1>

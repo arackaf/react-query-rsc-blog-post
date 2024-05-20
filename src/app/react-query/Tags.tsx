@@ -1,9 +1,11 @@
+"use client";
+
 import { FC } from "react";
 import { TagsList } from "../components/TagsList";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
-export const Tags: FC<{}> = async () => {
-  const { data, isLoading } = useSuspenseQuery({
+export const Tags: FC<{}> = () => {
+  const { data } = useSuspenseQuery({
     queryKey: ["tags-query"],
     queryFn: () => fetch("http://localhost:3000/api/tags").then((resp) => resp.json()),
   });

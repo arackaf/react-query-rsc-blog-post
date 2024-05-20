@@ -1,13 +1,16 @@
+"use client";
+
 import { FC } from "react";
 import { SubjectsList } from "../components/SubjectsList";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
-export const Subjects: FC<{}> = async () => {
-  const subjectsResp = await fetch("http://localhost:3000/api/subjects", {
-    next: {
-      tags: ["subjects-query"],
-    },
+export const Subjects: FC<{}> = () => {
+  const { data } = useSuspenseQuery({
+    queryKey: ["subejcts-query"],
+    queryFn: () => fetch("http://localhost:3000/api/subjects").then((resp) => resp.json()),
   });
-  const { subjects } = await subjectsResp.json();
+
+  const { subjects } = data;
 
   return (
     <div>

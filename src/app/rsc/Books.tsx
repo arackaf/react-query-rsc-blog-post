@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { BooksList } from "../components/BooksList";
+import { BookEdit } from "../components/BookEditRSC";
 
 export const Books: FC<{}> = async () => {
   const booksResp = await fetch("http://localhost:3000/api/books", {
@@ -11,7 +12,7 @@ export const Books: FC<{}> = async () => {
 
   return (
     <div>
-      <BooksList books={books} />
+      <BooksList books={books} BookEdit={BookEdit} />
     </div>
   );
 };
