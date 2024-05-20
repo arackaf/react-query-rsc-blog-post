@@ -6,14 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "create-db": "npx tsx db/index.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.36.2",
     "@tanstack/react-query-next-experimental": "^5.36.2",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sqlite3": "^5.1.7",
+    "tsx": "^4.10.5"
   },
   "devDependencies": {
     "@types/node": "^20",
