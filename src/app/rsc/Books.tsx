@@ -2,7 +2,11 @@ import { FC } from "react";
 import { BooksList } from "../components/BooksList";
 
 export const Books: FC<{}> = async () => {
-  const booksResp = await fetch("http://localhost:3000/api/books");
+  const booksResp = await fetch("http://localhost:3000/api/books", {
+    next: {
+      tags: ["books-query"],
+    },
+  });
   const { books } = await booksResp.json();
 
   return (

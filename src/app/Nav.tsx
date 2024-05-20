@@ -8,6 +8,7 @@ export const Nav: FC<{}> = (props) => {
   const path = usePathname();
 
   const isRscPath = path.includes("rsc");
+  const isReactQueryPath = path.includes("react-query");
 
   return (
     <div className="flex gap-5">
@@ -18,12 +19,12 @@ export const Nav: FC<{}> = (props) => {
           RSC Version
         </Link>
       )}
-      {isRscPath ? (
+      {isReactQueryPath ? (
+        <span>React Query Version</span>
+      ) : (
         <Link className="text-blue-800" href="/react-query" prefetch={false}>
           React Query Version
         </Link>
-      ) : (
-        <span>React Query Version</span>
       )}
     </div>
   );
