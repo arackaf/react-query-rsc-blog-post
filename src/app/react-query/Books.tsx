@@ -7,7 +7,7 @@ import { BookEdit } from "../components/BookEditReactQuery";
 
 export const Books: FC<{}> = () => {
   const { data } = useSuspenseQuery({
-    queryKey: ["books"],
+    queryKey: ["books-query"],
     queryFn: async () => {
       const booksResp = await fetch("http://localhost:3000/api/books");
       const { books } = await booksResp.json();

@@ -10,14 +10,16 @@ export const BookEdit: FC<BookEditProps> = (props) => {
   const titleRef = useRef<HTMLInputElement>(null);
   const queryClient = useQueryClient();
 
-  const saveBook = (id: number, newTitle: string) => {
-    fetch("/api/books/update", {
+  const saveBook = async (id: number, newTitle: string) => {
+    await fetch("/api/books/update", {
       method: "POST",
       body: JSON.stringify({
         id,
         title: newTitle,
       }),
     });
+
+    queryClient.invalidateQueries({ queryKey: ["books-query"] });
   };
 
   return (
