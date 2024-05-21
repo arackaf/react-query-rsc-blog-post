@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-db": "npx tsx db/index.ts"
+    "create-db": "npx tsx db/index.ts",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.36.2",

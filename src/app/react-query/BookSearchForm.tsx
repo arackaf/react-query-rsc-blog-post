@@ -22,7 +22,7 @@ export const BookSearchForm: FC<{}> = () => {
     }
     const queryString = searchParams.toString();
     startTransition(() => {
-      const search = searchParams.get("search");
+      const search = searchParams.get("search") ?? "";
       queryClient.prefetchQuery({
         queryKey: ["books-query", search ?? ""],
         queryFn: async () => {

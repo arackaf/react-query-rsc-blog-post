@@ -1,6 +1,6 @@
 "use client";
 
-import type { BookImages } from "./types";
+import type { BookImages } from "../types";
 import type { FC } from "react";
 
 type BookImagesPassed = Partial<BookImages>;

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { BookCover } from "./BookCover";
-import { BookEditProps } from "./types";
+import { BookEditProps } from "../types";
 
 type Props = { books: any[]; BookEdit: FC<BookEditProps> };
 

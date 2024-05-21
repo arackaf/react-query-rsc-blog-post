@@ -3,7 +3,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { FC } from "react";
 import { BooksList } from "../components/BooksList";
-import { BookEdit } from "../components/BookEditReactQuery";
+import { BookEdit } from "./BookEdit";
 import { useSearchParams } from "next/navigation";
 
 export const Books: FC<{}> = () => {
