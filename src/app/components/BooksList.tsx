@@ -9,7 +9,7 @@ export const BooksList: FC<Props> = ({ books, BookEdit }) => {
     <div className="flex flex-col gap-2">
       <h1 className="text-lg font-bold leading-none">Books</h1>
       {books.map((book) => (
-        <div className="flex gap-3">
+        <div key={book.id} className="flex gap-3">
           <div className="min-w-[55px]">
             <BookCover book={book} key={book.id} />
           </div>

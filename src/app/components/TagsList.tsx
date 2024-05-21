@@ -6,7 +6,7 @@ export const TagsList: FC<{ tags: any[] }> = ({ tags }) => {
       <h1 className="text-lg font-bold leading-none">Tags</h1>
       <div>
         {tags.map((tag) => (
-          <div className="flex gap-3">
+          <div key={tag.id} className="flex gap-3">
             <span>{tag.name}</span>
           </div>
         ))}
