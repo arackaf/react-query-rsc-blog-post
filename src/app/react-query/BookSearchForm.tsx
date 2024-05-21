@@ -3,6 +3,7 @@
 import { FC, FormEventHandler, useRef, useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
+import { makeBooksSearchQuery } from "./utils";
 
 export const BookSearchForm: FC<{}> = () => {
   const searchRef = useRef<HTMLInputElement>(null);
@@ -23,15 +24,7 @@ export const BookSearchForm: FC<{}> = () => {
     const queryString = searchParams.toString();
     startTransition(() => {
       const search = searchParams.get("search") ?? "";
-      queryClient.prefetchQuery({
-        queryKey: ["books-query", search ?? ""],
-        queryFn: async () => {
-          const booksResp = await fetch(`http://localhost:3000/api/books?search=${search}`);
-          const { books } = await booksResp.json();
-
-          return { books };
-        },
-      });
+      queryClient.prefetchQuery(makeBooksSearchQuery(search));
 
       router.push(currentPath + (queryString ? "?" : "") + queryString);
     });

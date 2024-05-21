@@ -5,20 +5,13 @@ import { FC } from "react";
 import { BooksList } from "../components/BooksList";
 import { BookEdit } from "./BookEdit";
 import { useSearchParams } from "next/navigation";
+import { makeBooksSearchQuery } from "./utils";
 
 export const Books: FC<{}> = () => {
   const params = useSearchParams();
   const search = params.get("search") ?? "";
 
-  const { data } = useSuspenseQuery({
-    queryKey: ["books-query", search ?? ""],
-    queryFn: async () => {
-      const booksResp = await fetch(`http://localhost:3000/api/books?search=${search}`);
-      const { books } = await booksResp.json();
-
-      return { books };
-    },
-  });
+  const { data } = useSuspenseQuery(makeBooksSearchQuery(search));
 
   const { books } = data;
 
