@@ -1,5 +1,6 @@
 "use client";
 
+import { useQueryClient } from "@tanstack/react-query";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, FormEventHandler, useRef, useTransition } from "react";
 
@@ -10,6 +11,7 @@ export const BookSearchForm: FC<{}> = () => {
   const currentSearch = searchParams.get("search")! || "";
   const router = useRouter();
   const [searching, startTransition] = useTransition();
+  const queryClient = useQueryClient();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (evt) => {
     evt.preventDefault();
@@ -20,7 +22,19 @@ export const BookSearchForm: FC<{}> = () => {
     }
     const queryString = searchParams.toString();
     startTransition(() => {
-      router.push(currentPath + (queryString ? "?" : "") + queryString);
+      if (currentPath === "/react-query") {
+        const search = searchParams.get("search");
+        queryClient.prefetchQuery({
+          queryKey: ["books-query", search ?? ""],
+          queryFn: async () => {
+            const booksResp = await fetch(`http://localhost:3000/api/books?search=${search}`);
+            const { books } = await booksResp.json();
+
+            return { books };
+          },
+        });
+      }
+      router.push((queryString ? "?" : "") + queryString);
     });
   };
 
