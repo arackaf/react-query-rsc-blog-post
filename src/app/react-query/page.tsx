@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export default function RSC() {
   return (
     <section className="p-5">
-      <h1 className="text-lg leading-none font-bold">Books page in RSC</h1>
+      <h1 className="text-lg leading-none font-bold">Books page with react-query</h1>
       <Suspense fallback={<h1>Loading...</h1>}>
         <div className="flex flex-col gap-2 p-5">
           <BookSearchForm />
