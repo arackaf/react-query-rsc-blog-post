@@ -7,7 +7,9 @@ import { BookSearchForm } from "../components/BookSearchForm";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export default function RSC() {
+export default function RSC(props: { searchParams: any }) {
+  const search = props.searchParams.search || "";
+
   return (
     <section className="p-5">
       <h1 className="text-lg leading-none font-bold">Books page in RSC</h1>
@@ -16,7 +18,7 @@ export default function RSC() {
           <BookSearchForm />
           <div className="flex">
             <div className="flex-[2] min-w-0">
-              <Books />
+              <Books search={search} />
             </div>
             <div className="flex-1 flex flex-col gap-8">
               <Subjects />

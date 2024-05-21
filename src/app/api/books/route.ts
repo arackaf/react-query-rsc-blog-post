@@ -1,11 +1,15 @@
+import { NextRequest } from "next/server";
 import sqlite3Module from "sqlite3";
 const sqlite3 = sqlite3Module.verbose();
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export const GET = async () => {
+export const GET = async (request: NextRequest) => {
   console.log("Fetching books ...");
+
+  const search = request.nextUrl.searchParams.get("search");
+
   await new Promise((res) => setTimeout(res, 400));
 
   const books = await new Promise((res) => {
@@ -15,7 +19,10 @@ export const GET = async () => {
           return res(null);
         }
 
-        db.all("SELECT * FROM books ORDER BY id DESC", (err, rows) => {
+        const query = `SELECT * FROM books ${search ? ` WHERE title LIKE ? ` : ""} ORDER BY id DESC`;
+        const params = search ? [`%${search}%`] : [];
+
+        db.all(query, params, (err, rows) => {
           if (err) {
             return res(null);
           }
