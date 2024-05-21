@@ -20,8 +20,7 @@ export const BookSearchForm: FC<{}> = () => {
     }
     const queryString = searchParams.toString();
     startTransition(() => {
-      window.history.pushState(null, "", (queryString ? "?" : "") + queryString);
-      //router.push(currentPath + (queryString ? "?" : "") + queryString);
+      router.push(currentPath + (queryString ? "?" : "") + queryString);
     });
   };
 
