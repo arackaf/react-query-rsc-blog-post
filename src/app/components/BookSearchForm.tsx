@@ -26,7 +26,7 @@ export const BookSearchForm: FC<{}> = () => {
 
   return (
     <form onSubmit={onSubmit} method="GET" className="flex gap-2 items-center">
-      <input ref={searchRef} defaultValue={currentSearch} placeholder="Search" name="search" className="border border-blue-600 rounded p-2" />
+      <input ref={searchRef} defaultValue={currentSearch} placeholder="Search" name="search" className="border border-gray-600 rounded p-2" />
       {searching ? <span>Searching ...</span> : null}
     </form>
   );

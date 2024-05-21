@@ -10,7 +10,7 @@ export const BookEdit: FC<BookEditProps> = (props) => {
 
   return (
     <div className="flex gap-2">
-      <input className="border p-1" ref={titleRef} defaultValue={book.title} />
+      <input className="border rounded border-gray-600 p-1" ref={titleRef} defaultValue={book.title} />
       <button onClick={() => saveBook(book.id, titleRef.current!.value)}>Save</button>
     </div>
   );

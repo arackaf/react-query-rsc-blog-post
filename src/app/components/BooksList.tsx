@@ -6,7 +6,7 @@ type Props = { books: any[]; BookEdit: FC<BookEditProps> };
 
 export const BooksList: FC<Props> = ({ books, BookEdit }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-6">
       <h1 className="text-lg font-bold leading-none">Books</h1>
       {books.length === 0 ? (
         <span>No results</span>

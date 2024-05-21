@@ -20,10 +20,10 @@ export const Nav: FC<{}> = (props) => {
         </Link>
       )}
       {isReactQueryPath ? (
-        <span>React Query Version</span>
+        <span>RSC and React Query Version</span>
       ) : (
         <Link className="text-blue-800" href="/react-query" prefetch={false}>
-          React Query Version
+          RSC and React Query Version
         </Link>
       )}
     </div>
