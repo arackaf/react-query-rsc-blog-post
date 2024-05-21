@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const GET = async (request: NextRequest) => {
-  console.log("Fetching books ...");
+  console.log("\n\nFetching books ...");
 
   const search = request.nextUrl.searchParams.get("search");
 

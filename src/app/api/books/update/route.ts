@@ -5,9 +5,12 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const POST = async (request: Request, context: any) => {
+  await new Promise((res) => setTimeout(res, 2500));
   const body = await request.json();
   const { id, title } = body;
   await update(id, title);
+
+  console.log("\n\nBook Updated! 🎉🎉🎉");
 
   return Response.json({});
 };
