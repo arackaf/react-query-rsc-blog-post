@@ -6,7 +6,7 @@ import { BookSearchForm } from "../components/BookSearchForm";
 
 export const dynamic = "force-dynamic";
 
-export default function RSC() {
+export default function ReactQuery() {
   return (
     <section className="p-5">
       <h1 className="text-lg leading-none font-bold">Books page with RSC and react-query</h1>
