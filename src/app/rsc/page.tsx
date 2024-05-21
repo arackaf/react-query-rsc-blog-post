@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Books } from "./Books";
 import { Subjects } from "./Subjects";
 import { Tags } from "./Tags";
-import { BookSearchForm } from "../components/BookSearchForm";
+import { BookSearchForm } from "./BookSearchForm";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
