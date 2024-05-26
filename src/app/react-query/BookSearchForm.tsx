@@ -23,15 +23,15 @@ export const BookSearchForm: FC<{}> = () => {
     const queryString = searchParams.toString();
     startTransition(() => {
       const search = searchParams.get("search") ?? "";
-      queryClient.prefetchQuery({
-        queryKey: ["books-query", search ?? ""],
-        queryFn: async () => {
-          const booksResp = await fetch(`http://localhost:3000/api/books?search=${search}`);
-          const { books } = await booksResp.json();
+      // queryClient.prefetchQuery({
+      //   queryKey: ["books-query", search ?? ""],
+      //   queryFn: async () => {
+      //     const booksResp = await fetch(`http://localhost:3000/api/books?search=${search}`);
+      //     const { books } = await booksResp.json();
 
-          return { books };
-        },
-      });
+      //     return { books };
+      //   },
+      // });
 
       router.push(currentPath + (queryString ? "?" : "") + queryString);
     });
