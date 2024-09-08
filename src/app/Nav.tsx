@@ -26,6 +26,9 @@ export const Nav: FC<{}> = (props) => {
           RSC and React Query Version
         </Link>
       )}
+      <Link className="text-blue-800" href="/react-query2" prefetch={false}>
+        RSC and React Query Version 2
+      </Link>
     </div>
   );
 };

@@ -10,7 +10,7 @@ export const GET = async (request: NextRequest) => {
 
   const search = request.nextUrl.searchParams.get("search");
 
-  await new Promise((res) => setTimeout(res, 400));
+  await new Promise((res) => setTimeout(res, 1200));
 
   const books = await new Promise((res) => {
     const db = new sqlite3.Database("db/db.txt", sqlite3Module.OPEN_READWRITE, async (error) => {
